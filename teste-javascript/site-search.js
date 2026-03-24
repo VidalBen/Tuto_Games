@@ -1,6 +1,6 @@
 /**
  * Author: Fabiel Santos
- * Date: 2026-03-22
+ * Date: 2026-03-23
  * Time: Session (America/Sao_Paulo)
  * Project: benjamin.TESTE — Tuto Games global game search
  * Purpose: Typeahead search over GAMES_DATA; navigate to wiki-jogo.html#slug.
@@ -9,7 +9,20 @@
   "use strict";
 
   var MAX_RESULTS = 10;
-  var WIKI_PAGE = "wiki-jogo.html";
+
+  /**
+   * Wiki bridge page path: same folder when already under teste-index.html/; from repo root needs prefix.
+   * @returns {string}
+   */
+  function wikiPagePath() {
+    var p = typeof window !== "undefined" && window.location && window.location.pathname
+      ? window.location.pathname
+      : "";
+    if (p.indexOf("teste-index.html") !== -1) {
+      return "wiki-jogo.html";
+    }
+    return "teste-index.html/wiki-jogo.html";
+  }
 
   /**
    * @param {string} s
@@ -132,7 +145,7 @@
         li.setAttribute("role", "none");
         var a = document.createElement("a");
         a.className = "site-search__hit";
-        a.href = WIKI_PAGE + "#" + encodeURIComponent(g.slug);
+        a.href = wikiPagePath() + "#" + encodeURIComponent(g.slug);
         a.setAttribute("role", "option");
         a.setAttribute("aria-selected", "false");
         a.id = "siteSearchOpt" + j;

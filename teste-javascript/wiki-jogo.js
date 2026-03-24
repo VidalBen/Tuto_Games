@@ -95,7 +95,7 @@
 
     var li1 = document.createElement("li");
     var a1 = document.createElement("a");
-    a1.href = "index.html";
+    a1.href = "../index.html";
     a1.textContent = "Início";
     li1.appendChild(a1);
     ol.appendChild(li1);
@@ -284,7 +284,7 @@
     actions.appendChild(back);
     var home = document.createElement("a");
     home.className = "btn btn--ghost";
-    home.href = "index.html";
+    home.href = "../index.html";
     home.textContent = "Início";
     actions.appendChild(home);
 
