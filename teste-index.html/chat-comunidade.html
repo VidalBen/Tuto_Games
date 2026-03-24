@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!--
+  Author: Fabiel Santos
+  Date: 2026-03-22
+  Time: Session (America/Sao_Paulo)
+  Project: benjamin.TESTE — Tuto Games community chat
+  Purpose: Dedicated public chat page with sticker bar, rules, and sync banner; shares logic with fale-conosco.js.
+-->
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Chat da comunidade Tuto Games — converse com visitantes, use figurinhas e denuncie mensagens inadequadas."
+    />
+    <title>Tuto Games — Chat da comunidade</title>
+    <link rel="shortcut icon" href="img/logoDoSite.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../teste.css/teste.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <p class="dev-site-banner" role="status">
+      Este site ainda está em desenvolvimento — pode apresentar erros ou bugs.
+    </p>
+
+    <header class="site-header" id="topo">
+      <div class="site-header__bar">
+        <a class="brand" href="index.html" aria-label="Tuto Games — início">
+          <span class="brand__mark" aria-hidden="true">◆</span>
+          <span class="brand__text">Tuto Games</span>
+        </a>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="navToggle"
+          aria-expanded="false"
+          aria-controls="mainNav"
+          aria-label="Abrir menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="site-search-wrap" id="siteSearchRoot">
+          <label for="siteSearchInput" class="visually-hidden">Pesquisar jogos</label>
+          <div class="site-search">
+            <input
+              type="search"
+              id="siteSearchInput"
+              class="site-search__input"
+              placeholder="Pesquisar jogo…"
+              autocomplete="off"
+              spellcheck="false"
+              aria-autocomplete="list"
+              aria-controls="siteSearchList"
+              aria-expanded="false"
+              enterkeyhint="search"
+            />
+            <ul id="siteSearchList" class="site-search__dropdown" role="listbox" hidden></ul>
+          </div>
+        </div>
+        <nav class="site-nav" id="mainNav" aria-label="Seções do site">
+          <a href="index.html">Início</a>
+          <a href="lista-jogos.html">Lista completa</a>
+          <a href="fale-conosco.html">Fale conosco</a>
+          <a href="chat-comunidade.html" aria-current="page">Chat da comunidade</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo" class="chat-page">
+      <section class="chat-hero" aria-labelledby="chat-hero-title">
+        <div class="container chat-hero__inner">
+          <div class="chat-hero__text">
+            <p class="chat-hero__eyebrow">Ao vivo no seu navegador</p>
+            <h1 id="chat-hero-title">Chat da comunidade</h1>
+            <p class="chat-hero__lead">
+              Converse com quem está visitando o Tuto Games agora. Use as <strong>figurinhas</strong> para reagir rápido,
+              respeite as regras e lembre-se: ainda é modo demonstração até o backend ficar pronto.
+            </p>
+            <p class="chat-hero__links">
+              <a class="btn btn--ghost" href="fale-conosco.html">Fale conosco (formulários)</a>
+              <a class="btn btn--primary" href="#chat-ancora">Ir direto ao chat</a>
+            </p>
+          </div>
+          <div class="chat-hero__art" aria-hidden="true">
+            <svg class="chat-hero__svg" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="chatHeroG1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35" />
+                  <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.08" />
+                </linearGradient>
+                <linearGradient id="chatHeroG2" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.25" />
+                  <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1" />
+                </linearGradient>
+              </defs>
+              <rect width="320" height="220" rx="20" fill="url(#chatHeroG1)" />
+              <ellipse cx="160" cy="200" rx="120" ry="14" fill="rgba(0,0,0,0.25)" />
+              <rect x="40" y="36" width="200" height="72" rx="16" fill="rgba(15,23,42,0.92)" stroke="rgba(148,163,184,0.35)" />
+              <text x="58" y="78" fill="#94a3b8" font-size="14" font-family="system-ui,sans-serif">Oi! Alguém jogando Roblox?</text>
+              <rect x="92" y="118" width="188" height="56" rx="16" fill="rgba(30,41,59,0.95)" stroke="rgba(56,189,248,0.4)" />
+              <text x="110" y="152" fill="#e2e8f0" font-size="14" font-family="system-ui,sans-serif">🎮 Bora! Acabei de ver a lista</text>
+              <circle cx="270" cy="52" r="28" fill="url(#chatHeroG2)" />
+              <text x="252" y="60" font-size="28">💬</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="chat-figures-strip" aria-label="Figurinhas decorativas">
+        <div class="container chat-figures-strip__inner">
+          <span class="chat-figures-strip__emoji" title="Games">🎮</span>
+          <span class="chat-figures-strip__emoji" title="Troféu">🏆</span>
+          <span class="chat-figures-strip__emoji" title="Estrela">⭐</span>
+          <span class="chat-figures-strip__emoji" title="Fogo">🔥</span>
+          <span class="chat-figures-strip__emoji" title="Coruja">🦉</span>
+          <span class="chat-figures-strip__emoji" title="Foguete">🚀</span>
+          <span class="chat-figures-strip__emoji" title="Pizza">🍕</span>
+          <span class="chat-figures-strip__emoji" title="Música">🎧</span>
+          <span class="chat-figures-strip__emoji" title="Coração">❤️</span>
+          <span class="chat-figures-strip__emoji" title="100">💯</span>
+        </div>
+      </section>
+
+      <section class="chat-info-grid container" aria-labelledby="chat-info-title">
+        <h2 id="chat-info-title" class="visually-hidden">Sobre este chat</h2>
+        <article class="chat-info-card">
+          <h3 class="chat-info-card__title">Regras rápidas</h3>
+          <ul class="chat-info-card__list">
+            <li>Nome de usuário até <strong>10 caracteres</strong> — termos proibidos viram <strong>########</strong>.</li>
+            <li>O mesmo filtro vale para o <strong>texto da mensagem</strong>: trechos bloqueados são substituídos por <strong>####</strong>.</li>
+            <li>Não compartilhe dados pessoais; use <strong>Denunciar</strong> se precisar.</li>
+          </ul>
+        </article>
+        <article class="chat-info-card">
+          <h3 class="chat-info-card__title">Figurinhas</h3>
+          <p class="chat-info-card__text">
+            Toque nas figurinhas abaixo do campo de mensagem para inserir emojis no texto — combine com palavras ou mande
+            só uma carinha para reagir.
+          </p>
+        </article>
+        <article class="chat-info-card">
+          <h3 class="chat-info-card__title">Onde isso fica salvo?</h3>
+          <p class="chat-info-card__text">
+            Por padrão o histórico fica <strong>neste navegador</strong>. Com Supabase configurado em
+            <code>fale-conosco-config.js</code>, as mensagens podem sincronizar entre dispositivos.
+          </p>
+        </article>
+      </section>
+
+      <section class="fc-section chat-main-section container" id="chat-ancora" aria-labelledby="fc-chat-title">
+        <h2 id="fc-chat-title" class="fc-section__title">Sala de bate-papo</h2>
+        <p class="fc-section__lead">
+          Escolha um nome de usuário com até <strong>10 caracteres</strong>. Nomes com palavras impróprias ou conteúdo
+          adulto são trocados automaticamente por <strong>########</strong>.
+        </p>
+        <p id="chatSyncBanner" class="fc-banner" role="status"></p>
+        <div class="fc-chat fc-chat--page">
+          <div id="chatMessages" class="fc-chat__list" tabindex="0" aria-live="polite"></div>
+          <form id="formChat" class="fc-chat__composer" action="#" method="post">
+            <p class="fc-chat__row">
+              <label for="chatUsername">Nome no chat (máx. 10)</label>
+              <input
+                id="chatUsername"
+                name="username"
+                type="text"
+                maxlength="10"
+                autocomplete="nickname"
+                placeholder="Ex.: Player01"
+                required
+              />
+            </p>
+            <p class="fc-chat__row">
+              <label for="chatBody">Mensagem</label>
+              <textarea id="chatBody" name="body" rows="4" maxlength="2000" required placeholder="Digite sua mensagem ou use figurinhas…"></textarea>
+            </p>
+            <div class="chat-sticker-wrap">
+              <p class="chat-sticker-wrap__label" id="chatStickerLabel">Figurinhas — toque para inserir no texto</p>
+              <div
+                class="chat-sticker-bar"
+                id="chatStickerBar"
+                role="toolbar"
+                aria-labelledby="chatStickerLabel"
+              >
+                <button type="button" class="chat-sticker-btn" data-insert="🎮" title="Controle">🎮</button>
+                <button type="button" class="chat-sticker-btn" data-insert="🏆" title="Troféu">🏆</button>
+                <button type="button" class="chat-sticker-btn" data-insert="⭐" title="Estrela">⭐</button>
+                <button type="button" class="chat-sticker-btn" data-insert="🔥" title="Fogo">🔥</button>
+                <button type="button" class="chat-sticker-btn" data-insert="💬" title="Balão">💬</button>
+                <button type="button" class="chat-sticker-btn" data-insert="👋" title="Oi">👋</button>
+                <button type="button" class="chat-sticker-btn" data-insert="😂" title="Risada">😂</button>
+                <button type="button" class="chat-sticker-btn" data-insert="🎉" title="Festa">🎉</button>
+                <button type="button" class="chat-sticker-btn" data-insert="❤️" title="Coração">❤️</button>
+                <button type="button" class="chat-sticker-btn" data-insert="👍" title="Joinha">👍</button>
+                <button type="button" class="chat-sticker-btn" data-insert="👎" title="Não">👎</button>
+                <button type="button" class="chat-sticker-btn" data-insert="🤔" title="Hmm">🤔</button>
+                <button type="button" class="chat-sticker-btn" data-insert="🎁" title="Presente">🎁</button>
+                <button type="button" class="chat-sticker-btn" data-insert="🕹️" title="Joystick">🕹️</button>
+                <button type="button" class="chat-sticker-btn" data-insert="⚔️" title="Espadas">⚔️</button>
+                <button type="button" class="chat-sticker-btn" data-insert="🛡️" title="Escudo">🛡️</button>
+                <button type="button" class="chat-sticker-btn" data-insert="🧩" title="Peça">🧩</button>
+                <button type="button" class="chat-sticker-btn" data-insert="✨" title="Brilho">✨</button>
+                <button type="button" class="chat-sticker-btn" data-insert="💡" title="Ideia">💡</button>
+                <button type="button" class="chat-sticker-btn" data-insert="🙌" title="Mãos">🙌</button>
+                <button type="button" class="chat-sticker-btn" data-insert="😎" title="Óculos">😎</button>
+                <button type="button" class="chat-sticker-btn" data-insert="🤝" title="Aperto">🤝</button>
+                <button type="button" class="chat-sticker-btn" data-insert="🎯" title="Alvo">🎯</button>
+                <button type="button" class="chat-sticker-btn" data-insert="💯" title="100">💯</button>
+              </div>
+            </div>
+            <p class="fc-chat__row fc-chat__row--actions">
+              <button type="submit" class="btn btn--primary">Enviar mensagem</button>
+            </p>
+          </form>
+        </div>
+        <p class="fc-chat__clear-wrap">
+          <button
+            type="button"
+            class="btn btn--danger"
+            id="btnApagarChat"
+            disabled
+            title="Disponível após acesso de administrador na faixa Senha adm (rodapé)."
+          >
+            Apagar mensagens
+          </button>
+          <span class="fc-chat__clear-hint"
+            >Teste: apaga o histórico local. O botão só fica ativo depois da senha de administrador em
+            <strong>Senha adm</strong> (rodapé).</span
+          >
+        </p>
+        <p class="fc-micro">
+          Denúncias ficam registradas neste navegador até termos moderação em servidor. Tabela sugerida no Supabase:
+          <code>public_chat_messages</code> (<code>username</code>, <code>body</code>, <code>created_at</code>).
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__grid">
+        <div>
+          <p class="site-footer__brand">Tuto Games</p>
+          <p class="site-footer__note">
+            Página estática de exemplo. Sem fins comerciais; links externos abrem em nova aba.
+          </p>
+          <nav class="site-footer__nav" aria-label="Rodapé">
+            <a href="index.html">Início</a>
+            <a href="lista-jogos.html">Lista completa</a>
+            <a href="fale-conosco.html">Fale conosco</a>
+            <a href="chat-comunidade.html">Chat da comunidade</a>
+          </nav>
+        </div>
+        <div>
+          <p class="site-footer__label">Privacidade</p>
+          <p class="site-footer__fine">
+            O chat é demonstração: não compartilhe dados sensíveis. Mensagens podem ficar só no seu aparelho até haver
+            servidor.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../teste-javascript/admin-config.js" defer></script>
+    <script src="../teste-javascript/admin-panel.js" defer></script>
+    <script src="../teste-javascript/games-data.js" defer></script>
+    <script src="../teste-javascript/site-search.js" defer></script>
+    <script src="../teste-javascript/fale-conosco-config.js" defer></script>
+    <script src="../teste-javascript/fale-conosco.js" defer></script>
+    <script src="../teste-javascript/deck.js" defer></script>
+  </body>
+</html>

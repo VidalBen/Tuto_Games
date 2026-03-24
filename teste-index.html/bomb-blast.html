@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--
+  Author: Fabiel Santos
+  Date: 2026-03-22
+  Time: Session (America/Sao_Paulo)
+  Project: benjamin.TESTE — Tuto Games Bomb Blast minigame
+  Purpose: Bomb minigame — multiple levels, bomb types, short unlock tutorials, admin-only skip level.
+-->
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Bombas Divertidas — minijogo Tuto Games (guias infantis)." />
+    <title>Tuto Games — Bombas Divertidas</title>
+    <link rel="shortcut icon" href="img/logoDoSite.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../teste.css/teste.css" />
+  </head>
+  <body class="bomb-blast-page">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <p class="dev-site-banner" role="status">
+      Este site ainda está em desenvolvimento — pode apresentar erros ou bugs.
+    </p>
+
+    <header class="site-header" id="topo">
+      <div class="site-header__bar">
+        <a class="brand" href="index.html" aria-label="Tuto Games — início">
+          <span class="brand__mark" aria-hidden="true">◆</span>
+          <span class="brand__text">Tuto Games</span>
+        </a>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="navToggle"
+          aria-expanded="false"
+          aria-controls="mainNav"
+          aria-label="Abrir menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="site-search-wrap" id="siteSearchRoot">
+          <label for="siteSearchInput" class="visually-hidden">Pesquisar jogos</label>
+          <div class="site-search">
+            <input
+              type="search"
+              id="siteSearchInput"
+              class="site-search__input"
+              placeholder="Pesquisar jogo…"
+              autocomplete="off"
+              spellcheck="false"
+              aria-autocomplete="list"
+              aria-controls="siteSearchList"
+              aria-expanded="false"
+              enterkeyhint="search"
+            />
+            <ul id="siteSearchList" class="site-search__dropdown" role="listbox" hidden></ul>
+          </div>
+        </div>
+        <nav class="site-nav" id="mainNav" aria-label="Seções do site">
+          <a href="index.html">Início</a>
+          <a href="lista-jogos.html">Lista completa</a>
+          <a href="fale-conosco.html">Fale conosco</a>
+          <a href="chat-comunidade.html">Chat da comunidade</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo" class="bomb-blast-layout container">
+      <div class="bomb-blast-main">
+        <header class="bomb-blast-main__head">
+          <p class="bomb-blast-main__eyebrow">Minijogo · só guias infantis</p>
+          <h1 class="bomb-blast-main__title">Bombas Divertidas</h1>
+          <p class="bomb-blast-main__hint">
+            Arraste da <strong>estilingue</strong> e solte para lançar. Cada fase tem um tipo de bomba e um número de
+            tentativas (veja o HUD). Novas bombas têm um tutorial rápido. O jogo abre pelos guias infantis; administradores
+            podem usar <strong>Pular fase</strong> após desbloquear a sessão no painel do rodapé.
+          </p>
+        </header>
+
+        <div class="bomb-blast-board-wrap">
+          <canvas id="bombCanvas" class="bomb-blast-canvas" width="720" height="420" aria-label="Área do minijogo Bombas Divertidas"></canvas>
+          <div
+            id="bombGameOverlay"
+            class="bomb-blast-game-overlay"
+            hidden
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="bombOverlayTitle"
+          >
+            <div class="bomb-blast-game-overlay__panel">
+              <p class="bomb-blast-game-overlay__eyebrow" id="bombOverlayEyebrow"></p>
+              <h2 id="bombOverlayTitle" class="bomb-blast-game-overlay__title">Game Over</h2>
+              <p id="bombOverlaySub" class="bomb-blast-game-overlay__sub"></p>
+              <p class="bomb-blast-game-overlay__score-wrap">
+                <span class="bomb-blast-game-overlay__score-label">Pontos</span>
+                <span id="bombOverlayScore" class="bomb-blast-game-overlay__score" aria-live="polite">0</span>
+              </p>
+              <div class="bomb-blast-game-overlay__actions">
+                <button type="button" class="btn btn--primary" id="btnBombOverlayPrimary"></button>
+                <button type="button" class="btn btn--ghost" id="btnBombOverlaySecondary" hidden></button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="bombGrandVictoryOverlay"
+            class="bomb-grand-victory"
+            hidden
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="bombGrandVictoryTitle"
+          >
+            <div class="bomb-grand-victory__aurora" aria-hidden="true"></div>
+            <div class="bomb-grand-victory__rays" aria-hidden="true"></div>
+            <div id="bombGrandVictoryStars" class="bomb-grand-victory__stars" aria-hidden="true"></div>
+            <div class="bomb-grand-victory__confetti" id="bombGrandVictoryConfetti" aria-hidden="true"></div>
+            <div class="bomb-grand-victory__panel">
+              <div class="bomb-grand-victory__badge" aria-hidden="true">
+                <svg class="bomb-grand-victory__trophy" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="bvTrophy" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color: #fde047" />
+                      <stop offset="50%" style="stop-color: #facc15" />
+                      <stop offset="100%" style="stop-color: #ca8a04" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    fill="url(#bvTrophy)"
+                    stroke="#a16207"
+                    stroke-width="1.2"
+                    d="M32 8 L38 22 L54 24 L42 34 L46 50 L32 42 L18 50 L22 34 L10 24 L26 22 Z"
+                  />
+                  <ellipse cx="32" cy="52" rx="14" ry="4" fill="#ca8a04" opacity="0.5" />
+                </svg>
+              </div>
+              <p class="bomb-grand-victory__eyebrow">Campanha completa</p>
+              <h2 id="bombGrandVictoryTitle" class="bomb-grand-victory__title">Vitória total!</h2>
+              <p class="bomb-grand-victory__sub">
+                Você limpou todos os níveis — explosões perfeitas!
+              </p>
+              <div class="bomb-grand-victory__score-box">
+                <span class="bomb-grand-victory__score-label">Pontuação total</span>
+                <span id="bombGrandVictoryScore" class="bomb-grand-victory__score" aria-live="polite">0</span>
+              </div>
+              <button type="button" class="btn btn--primary bomb-grand-victory__btn" id="btnBombGrandVictoryRestart">
+                Jogar do início
+              </button>
+            </div>
+          </div>
+
+          <div
+            id="bombTutorialOverlay"
+            class="bomb-tuto-overlay"
+            hidden
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="bombTutoTitle"
+          >
+            <div class="bomb-tuto-overlay__panel">
+              <p class="bomb-tuto-overlay__eyebrow">Nova bomba desbloqueada</p>
+              <h2 id="bombTutoTitle" class="bomb-tuto-overlay__title">Bomba</h2>
+              <div id="bombTutoVisual" class="bomb-tuto-overlay__visual" aria-hidden="true"></div>
+              <p id="bombTutoText" class="bomb-tuto-overlay__text"></p>
+              <div class="bomb-tuto-overlay__bar" aria-hidden="true">
+                <div id="bombTutoBarFill" class="bomb-tuto-overlay__bar-fill"></div>
+              </div>
+              <p id="bombTutoTimer" class="bomb-tuto-overlay__timer"></p>
+              <div class="bomb-tuto-overlay__actions">
+                <button type="button" class="btn btn--primary" id="btnBombTutoClose">Entendi</button>
+                <button type="button" class="btn btn--ghost" id="btnBombTutoSkipLearn">Pular explicação</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bomb-blast-hud" aria-live="polite">
+          <div class="bomb-blast-hud__item bomb-blast-hud__item--score">
+            <span class="bomb-blast-hud__label">Pontos</span>
+            <span id="bombHudScore" class="bomb-blast-hud__value">0</span>
+          </div>
+          <div class="bomb-blast-hud__item">
+            <span class="bomb-blast-hud__label">Nível</span>
+            <span id="bombHudLevel" class="bomb-blast-hud__value">1</span>
+          </div>
+          <div class="bomb-blast-hud__item bomb-blast-hud__item--bombs">
+            <span class="bomb-blast-hud__label">Bombas nesta fase</span>
+            <div class="bomb-blast-hud__bombs-wrap">
+              <div id="bombHudBombIcons" class="bomb-blast-hud__bomb-icons" aria-hidden="true"></div>
+              <span id="bombHudBombs" class="bomb-blast-hud__bombs-count" aria-live="polite">3</span>
+            </div>
+          </div>
+        </div>
+        <p id="bombHudBombLine" class="bomb-blast-bomb-line">
+          Bomba deste nível: <strong id="bombHudBombName">Clássica</strong>
+        </p>
+        <p id="bombHudMsg" class="bomb-blast-msg">Arraste da estilingue e solte para lançar.</p>
+
+        <div class="bomb-blast-toolbar">
+          <button type="button" class="btn btn--ghost" id="btnBombResetGame" title="Zera pontos e volta ao nível 1">
+            Reiniciar jogo
+          </button>
+          <button
+            type="button"
+            class="btn btn--ghost bomb-blast-toolbar__skip"
+            id="btnBombSkipLevel"
+            disabled
+            title="Disponível apenas com sessão de administrador"
+          >
+            Pular fase
+          </button>
+          <button type="button" class="btn btn--primary" id="btnBombNext" hidden>Próximo nível</button>
+          <button type="button" class="btn btn--ghost" id="btnBombRetry" hidden>Jogar de novo</button>
+          <a class="btn btn--ghost bomb-blast-toolbar__exit" href="lista-jogos.html">Sair</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__grid">
+        <div>
+          <p class="site-footer__brand">Tuto Games</p>
+          <p class="site-footer__note">Minijogo local — sem envio de pontuação ao servidor.</p>
+          <nav class="site-footer__nav" aria-label="Rodapé">
+            <a href="index.html">Início</a>
+            <a href="lista-jogos.html">Lista completa</a>
+          </nav>
+        </div>
+        <div>
+          <p class="site-footer__label">Acesso</p>
+          <p class="site-footer__fine">Abra este jogo pelo botão flutuante na wiki de um título infantil/família.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../teste-javascript/admin-config.js" defer></script>
+    <script src="../teste-javascript/admin-panel.js" defer></script>
+    <script src="../teste-javascript/games-data.js" defer></script>
+    <script src="../teste-javascript/site-search.js" defer></script>
+    <script src="../teste-javascript/bomb-blast.js" defer></script>
+    <script src="../teste-javascript/deck.js" defer></script>
+  </body>
+</html>

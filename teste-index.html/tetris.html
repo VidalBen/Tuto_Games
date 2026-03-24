@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+  Author: Fabiel Santos
+  Date: 2026-03-22
+  Time: Session (America/Sao_Paulo)
+  Project: benjamin.TESTE — Tuto Games Tetris minigame
+  Purpose: Playable Tetris with HUD, pause/game-over, sidebar game list; opened from home launcher only.
+-->
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tetris no navegador — Tuto Games." />
+    <title>Tuto Games — Tetris</title>
+    <link rel="shortcut icon" href="img/logoDoSite.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../teste.css/teste.css" />
+  </head>
+  <body class="tetris-page">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <p class="dev-site-banner" role="status">
+      Este site ainda está em desenvolvimento — pode apresentar erros ou bugs.
+    </p>
+
+    <header class="site-header" id="topo">
+      <div class="site-header__bar">
+        <a class="brand" href="index.html" aria-label="Tuto Games — início">
+          <span class="brand__mark" aria-hidden="true">◆</span>
+          <span class="brand__text">Tuto Games</span>
+        </a>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="navToggle"
+          aria-expanded="false"
+          aria-controls="mainNav"
+          aria-label="Abrir menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="site-search-wrap" id="siteSearchRoot">
+          <label for="siteSearchInput" class="visually-hidden">Pesquisar jogos</label>
+          <div class="site-search">
+            <input
+              type="search"
+              id="siteSearchInput"
+              class="site-search__input"
+              placeholder="Pesquisar jogo…"
+              autocomplete="off"
+              spellcheck="false"
+              aria-autocomplete="list"
+              aria-controls="siteSearchList"
+              aria-expanded="false"
+              enterkeyhint="search"
+            />
+            <ul id="siteSearchList" class="site-search__dropdown" role="listbox" hidden></ul>
+          </div>
+        </div>
+        <nav class="site-nav" id="mainNav" aria-label="Seções do site">
+          <a href="index.html">Início</a>
+          <a href="lista-jogos.html">Lista completa</a>
+          <a href="fale-conosco.html">Fale conosco</a>
+          <a href="chat-comunidade.html">Chat da comunidade</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo" class="tetris-layout container">
+      <div class="tetris-main">
+        <header class="tetris-main__head">
+          <p class="tetris-main__eyebrow">Minijogo</p>
+          <h1 class="tetris-main__title">Tetris</h1>
+          <p class="tetris-main__hint">
+            <kbd>←</kbd> <kbd>→</kbd> mover · <kbd>↑</kbd> girar · <kbd>↓</kbd> acelerar ·
+            <kbd>Espaço</kbd> queda rápida · <kbd>Esc</kbd> pausar
+          </p>
+        </header>
+
+        <div class="tetris-board-wrap">
+          <canvas id="tetrisCanvas" class="tetris-canvas" width="220" height="440" aria-label="Área do jogo Tetris"></canvas>
+
+          <div id="tetrisOverlay" class="tetris-overlay" role="dialog" aria-modal="true" aria-labelledby="tetrisOverlayTitle">
+            <div class="tetris-overlay__panel">
+              <h2 id="tetrisOverlayTitle" class="tetris-overlay__title">Tetris</h2>
+              <p id="tetrisOverlaySub" class="tetris-overlay__sub">
+                Monte linhas completas para pontuar. Bom jogo!
+              </p>
+              <div class="tetris-overlay__btns">
+                <button type="button" class="btn btn--primary" id="btnTetrisOverlayPrimary">Iniciar</button>
+                <a class="btn btn--ghost" href="index.html">Voltar ao início</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tetris-hud">
+          <div class="tetris-hud__item">
+            <span class="tetris-hud__label">Pontos</span>
+            <span id="tetrisScore" class="tetris-hud__value">0</span>
+          </div>
+          <div class="tetris-hud__item">
+            <span class="tetris-hud__label">Linhas</span>
+            <span id="tetrisLines" class="tetris-hud__value">0</span>
+          </div>
+          <div class="tetris-hud__item">
+            <span class="tetris-hud__label">Nível</span>
+            <span id="tetrisLevel" class="tetris-hud__value">1</span>
+          </div>
+        </div>
+
+        <div class="tetris-toolbar">
+          <button type="button" class="btn btn--primary" id="btnTetrisStart">Iniciar</button>
+          <button type="button" class="btn btn--ghost" id="btnTetrisPause" disabled>Pausar</button>
+          <button type="button" class="btn btn--ghost" id="btnTetrisRestart">Jogar de novo</button>
+          <a class="btn btn--ghost tetris-toolbar__exit" href="index.html">Sair do jogo</a>
+        </div>
+      </div>
+
+      <aside class="tetris-sidebar" aria-labelledby="tetris-sidebar-title">
+        <h2 id="tetris-sidebar-title" class="tetris-sidebar__title">Jogos no site</h2>
+        <p class="tetris-sidebar__hint">Primeiros 20 — link para a wiki da comunidade.</p>
+        <ol class="game-list tetris-sidebar__list" id="tetrisGamesList"></ol>
+        <div class="tetris-sidebar__links">
+          <a class="btn btn--primary btn--block" href="index.html">Página inicial</a>
+          <a class="btn btn--ghost btn--block" href="lista-jogos.html">Lista completa</a>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__grid">
+        <div>
+          <p class="site-footer__brand">Tuto Games</p>
+          <p class="site-footer__note">Minijogo local — sem envio de pontuação ao servidor.</p>
+          <nav class="site-footer__nav" aria-label="Rodapé">
+            <a href="index.html">Início</a>
+            <a href="lista-jogos.html">Lista completa</a>
+          </nav>
+        </div>
+        <div>
+          <p class="site-footer__label">Atalho</p>
+          <p class="site-footer__fine">O botão Tetris aparece só na página inicial.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../teste-javascript/admin-config.js" defer></script>
+    <script src="../teste-javascript/admin-panel.js" defer></script>
+    <script src="../teste-javascript/games-data.js" defer></script>
+    <script src="../teste-javascript/site-search.js" defer></script>
+    <script src="../teste-javascript/tetris.js" defer></script>
+    <script src="../teste-javascript/deck.js" defer></script>
+  </body>
+</html>

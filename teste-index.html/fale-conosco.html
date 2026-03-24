@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<!--
+  Author: Fabiel Santos
+  Date: 2026-03-22
+  Time: Session (America/Sao_Paulo)
+  Project: benjamin.TESTE — Tuto Games contact hub
+  Purpose: Contact hub — site feedback, bugs, owner intake; community chat lives on chat-comunidade.html.
+-->
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Fale conosco — avaliação, bugs e contato com a equipe Tuto Games."
+    />
+    <title>Tuto Games — Fale conosco</title>
+    <link rel="shortcut icon" href="img/logoDoSite.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../teste.css/teste.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <p class="dev-site-banner" role="status">
+      Este site ainda está em desenvolvimento — pode apresentar erros ou bugs.
+    </p>
+
+    <header class="site-header" id="topo">
+      <div class="site-header__bar">
+        <a class="brand" href="index.html" aria-label="Tuto Games — início">
+          <span class="brand__mark" aria-hidden="true">◆</span>
+          <span class="brand__text">Tuto Games</span>
+        </a>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="navToggle"
+          aria-expanded="false"
+          aria-controls="mainNav"
+          aria-label="Abrir menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="site-search-wrap" id="siteSearchRoot">
+          <label for="siteSearchInput" class="visually-hidden">Pesquisar jogos</label>
+          <div class="site-search">
+            <input
+              type="search"
+              id="siteSearchInput"
+              class="site-search__input"
+              placeholder="Pesquisar jogo…"
+              autocomplete="off"
+              spellcheck="false"
+              aria-autocomplete="list"
+              aria-controls="siteSearchList"
+              aria-expanded="false"
+              enterkeyhint="search"
+            />
+            <ul id="siteSearchList" class="site-search__dropdown" role="listbox" hidden></ul>
+          </div>
+        </div>
+        <nav class="site-nav" id="mainNav" aria-label="Seções do site">
+          <a href="index.html">Início</a>
+          <a href="lista-jogos.html">Lista completa</a>
+          <a href="fale-conosco.html">Fale conosco</a>
+          <a href="chat-comunidade.html">Chat da comunidade</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo" class="contact-page contact-page--hub">
+      <div class="container">
+        <header class="contact-hub__hero">
+          <p class="hero__eyebrow">Central de contato</p>
+          <h1>Fale conosco</h1>
+          <p class="section__lead">
+            Escolha o canal abaixo: <strong>avaliação do site</strong>, <strong>bugs ou informação errada</strong> ou
+            <strong>contato direto com a equipe / dono</strong>. O
+            <a href="chat-comunidade.html">chat entre visitantes</a> está em página própria no menu. Tudo ainda roda em
+            modo demonstração até ligarmos o servidor — onde indicado, mostramos um aviso em letras pequenas.
+          </p>
+        </header>
+
+        <nav class="fc-toc" aria-label="Atalhos desta página">
+          <a class="fc-toc__link" href="#avaliacao-site">Avaliação do site</a>
+          <a class="fc-toc__link" href="#relatorio-bugs">Bugs e correções</a>
+          <a class="fc-toc__link" href="#contato-dono">Contato com o dono</a>
+        </nav>
+
+        <!-- 1) Avaliação (wizard multi-página na mesma URL) -->
+        <section class="fc-section fc-section--eval" id="avaliacao-site" aria-labelledby="fc-av-title">
+          <h2 id="fc-av-title" class="fc-section__title">1 · Avaliação do site</h2>
+          <p class="fc-section__lead">
+            Responda em <strong>passos curtos</strong> — use as setas para avançar. Quando o backend estiver pronto, o
+            envio seguirá para a equipe; por enquanto só mostramos o agradecimento aqui na página.
+          </p>
+
+          <div class="fc-eval" id="fcEvalRoot" style="--fc-eval-step: 0">
+            <div class="fc-eval__top">
+              <div
+                class="fc-eval__progress"
+                id="fcEvalProgress"
+                role="progressbar"
+                aria-valuemin="1"
+                aria-valuemax="6"
+                aria-valuenow="1"
+                aria-labelledby="fcEvalStepLabel"
+              >
+                <div class="fc-eval__progress-fill"></div>
+              </div>
+              <p class="fc-eval__step-label" id="fcEvalStepLabel">Passo 1 de 6</p>
+              <div class="fc-eval__dots" id="fcEvalDots" aria-hidden="true">
+                <span class="fc-eval__dot is-active"></span>
+                <span class="fc-eval__dot"></span>
+                <span class="fc-eval__dot"></span>
+                <span class="fc-eval__dot"></span>
+                <span class="fc-eval__dot"></span>
+                <span class="fc-eval__dot"></span>
+              </div>
+            </div>
+
+            <form id="formAvaliacao" class="contact-form fc-form fc-eval__form" action="#" method="post" novalidate>
+              <div class="fc-eval__viewport">
+                <div class="fc-eval__track" id="fcEvalTrack">
+                  <div class="fc-eval__slide" data-eval-slide="0" tabindex="-1">
+                    <div class="fc-eval__intro">
+                      <div class="fc-eval__intro-art" aria-hidden="true">
+                        <svg class="fc-eval__intro-svg" viewBox="0 0 140 96" xmlns="http://www.w3.org/2000/svg">
+                          <defs>
+                            <linearGradient id="fcEvalStarG" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stop-color="#fbbf24" />
+                              <stop offset="100%" stop-color="#f59e0b" />
+                            </linearGradient>
+                            <linearGradient id="fcEvalSparkG" x1="0%" y1="0%" x2="100%" y2="0%">
+                              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9" />
+                              <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.5" />
+                            </linearGradient>
+                          </defs>
+                          <path
+                            fill="url(#fcEvalStarG)"
+                            d="M70 6l5.2 15.8h16.8L79.4 33l5.2 15.8L70 41.5 55.4 48.8 60.6 33 48 21.8h16.8L70 6z"
+                          />
+                          <path
+                            fill="url(#fcEvalSparkG)"
+                            d="M22 58l3 9h9.5l-7.7 5.6 3 9-7.8-5.7-7.8 5.7 3-9-7.7-5.6h9.5l3-9z"
+                            opacity="0.85"
+                          />
+                          <path
+                            fill="url(#fcEvalSparkG)"
+                            d="M108 52l2.4 7.2h7.6l-6.2 4.5 2.4 7.3-6.2-4.6-6.2 4.6 2.4-7.3-6.2-4.5h7.6l2.4-7.2z"
+                            opacity="0.65"
+                          />
+                          <circle cx="48" cy="78" r="2.5" fill="#94a3b8" opacity="0.5" />
+                          <circle cx="96" cy="84" r="2" fill="#94a3b8" opacity="0.4" />
+                          <circle cx="118" cy="72" r="1.5" fill="#64748b" opacity="0.45" />
+                        </svg>
+                      </div>
+                      <h3 class="fc-eval__intro-title">Bem-vindo à avaliação</h3>
+                      <p class="fc-eval__intro-text">
+                        São <strong>seis passos rápidos</strong>: nota geral, recomendação, o que melhorar, contexto e
+                        comentário livre. Use <strong>Próximo</strong> e <strong>Anterior</strong> como se fossem
+                        páginas — a transição é só visual, você continua no Fale conosco.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="fc-eval__slide" data-eval-slide="1" tabindex="-1">
+                    <fieldset class="fc-fieldset fc-eval__fieldset">
+                      <legend class="fc-legend">Nota geral do site hoje</legend>
+                      <p class="fc-eval__hint">Toque nas estrelas — quanto maior, melhor a experiência.</p>
+                      <div
+                        class="fc-eval-stars fc-eval-stars--lg"
+                        role="radiogroup"
+                        aria-label="Nota geral de 1 a 5 estrelas"
+                        data-rating="0"
+                      >
+                        <label class="fc-eval-star"
+                          ><input type="radio" name="nota" value="1" />
+                          <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                              d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                            /></svg
+                          ><span class="visually-hidden">1 estrela</span></label
+                        >
+                        <label class="fc-eval-star"
+                          ><input type="radio" name="nota" value="2" />
+                          <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                              d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                            /></svg
+                          ><span class="visually-hidden">2 estrelas</span></label
+                        >
+                        <label class="fc-eval-star"
+                          ><input type="radio" name="nota" value="3" />
+                          <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                              d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                            /></svg
+                          ><span class="visually-hidden">3 estrelas</span></label
+                        >
+                        <label class="fc-eval-star"
+                          ><input type="radio" name="nota" value="4" />
+                          <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                              d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                            /></svg
+                          ><span class="visually-hidden">4 estrelas</span></label
+                        >
+                        <label class="fc-eval-star"
+                          ><input type="radio" name="nota" value="5" />
+                          <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                              d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                            /></svg
+                          ><span class="visually-hidden">5 estrelas</span></label
+                        >
+                      </div>
+                    </fieldset>
+                  </div>
+
+                  <div class="fc-eval__slide" data-eval-slide="2" tabindex="-1">
+                    <fieldset class="fc-fieldset fc-eval__fieldset">
+                      <legend class="fc-legend">Mais duas perguntas rápidas</legend>
+                      <div class="fc-eval__subblock">
+                        <p class="fc-eval__sublegend">Você recomendaria o Tuto Games para um amigo?</p>
+                        <div
+                          class="fc-eval-stars"
+                          role="radiogroup"
+                          aria-label="Recomendação de 1 a 5"
+                          data-rating="0"
+                        >
+                          <label class="fc-eval-star"
+                            ><input type="radio" name="recomendar" value="1" />
+                            <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                              /></svg
+                            ><span class="visually-hidden">1</span></label
+                          >
+                          <label class="fc-eval-star"
+                            ><input type="radio" name="recomendar" value="2" />
+                            <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                              /></svg
+                            ><span class="visually-hidden">2</span></label
+                          >
+                          <label class="fc-eval-star"
+                            ><input type="radio" name="recomendar" value="3" />
+                            <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                              /></svg
+                            ><span class="visually-hidden">3</span></label
+                          >
+                          <label class="fc-eval-star"
+                            ><input type="radio" name="recomendar" value="4" />
+                            <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                              /></svg
+                            ><span class="visually-hidden">4</span></label
+                          >
+                          <label class="fc-eval-star"
+                            ><input type="radio" name="recomendar" value="5" />
+                            <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                              /></svg
+                            ><span class="visually-hidden">5</span></label
+                          >
+                        </div>
+                      </div>
+                      <div class="fc-eval__subblock">
+                        <p class="fc-eval__sublegend">Quão fácil foi encontrar o que você buscava?</p>
+                        <div
+                          class="fc-eval-stars"
+                          role="radiogroup"
+                          aria-label="Facilidade de 1 a 5"
+                          data-rating="0"
+                        >
+                          <label class="fc-eval-star"
+                            ><input type="radio" name="facilidade" value="1" />
+                            <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                              /></svg
+                            ><span class="visually-hidden">1</span></label
+                          >
+                          <label class="fc-eval-star"
+                            ><input type="radio" name="facilidade" value="2" />
+                            <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                              /></svg
+                            ><span class="visually-hidden">2</span></label
+                          >
+                          <label class="fc-eval-star"
+                            ><input type="radio" name="facilidade" value="3" />
+                            <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                              /></svg
+                            ><span class="visually-hidden">3</span></label
+                          >
+                          <label class="fc-eval-star"
+                            ><input type="radio" name="facilidade" value="4" />
+                            <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                              /></svg
+                            ><span class="visually-hidden">4</span></label
+                          >
+                          <label class="fc-eval-star"
+                            ><input type="radio" name="facilidade" value="5" />
+                            <svg class="fc-eval-star__svg" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="M12 2.5l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2.5z"
+                              /></svg
+                            ><span class="visually-hidden">5</span></label
+                          >
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                  <div class="fc-eval__slide" data-eval-slide="3" tabindex="-1">
+                    <fieldset class="fc-fieldset fc-eval__fieldset">
+                      <legend class="fc-legend">O que você gostaria de ver melhor? (várias opções)</legend>
+                      <p class="fc-eval__hint">Marque tudo o que fizer sentido para você.</p>
+                      <ul class="fc-check-list fc-check-list--grid">
+                        <li>
+                          <label><input type="checkbox" name="melhoria" value="visual" /> Visual / cores</label>
+                        </li>
+                        <li>
+                          <label><input type="checkbox" name="melhoria" value="lista" /> Lista de jogos</label>
+                        </li>
+                        <li>
+                          <label><input type="checkbox" name="melhoria" value="velocidade" /> Velocidade</label>
+                        </li>
+                        <li>
+                          <label><input type="checkbox" name="melhoria" value="textos" /> Textos e explicações</label>
+                        </li>
+                        <li>
+                          <label><input type="checkbox" name="melhoria" value="mobile" /> Uso no celular</label>
+                        </li>
+                        <li>
+                          <label><input type="checkbox" name="melhoria" value="wiki" /> Páginas wiki / tutoriais</label>
+                        </li>
+                        <li>
+                          <label><input type="checkbox" name="melhoria" value="busca" /> Busca no site</label>
+                        </li>
+                        <li>
+                          <label><input type="checkbox" name="melhoria" value="acessibilidade" /> Acessibilidade</label>
+                        </li>
+                        <li>
+                          <label><input type="checkbox" name="melhoria" value="novidades" /> Novidades / blog</label>
+                        </li>
+                        <li>
+                          <label><input type="checkbox" name="melhoria" value="comunidade" /> Chat / comunidade</label>
+                        </li>
+                      </ul>
+                    </fieldset>
+                  </div>
+
+                  <div class="fc-eval__slide" data-eval-slide="4" tabindex="-1">
+                    <fieldset class="fc-fieldset fc-eval__fieldset">
+                      <legend class="fc-legend">Contexto da visita</legend>
+                      <p class="contact-form__field">
+                        <label for="avDescoberta">Como você chegou ao site?</label>
+                        <select id="avDescoberta" name="descoberta">
+                          <option value="">Selecione…</option>
+                          <option value="google">Busca (Google / Bing)</option>
+                          <option value="redes">Redes sociais</option>
+                          <option value="amigo">Indicação de amigo</option>
+                          <option value="wiki_jogo">Página de um jogo / wiki</option>
+                          <option value="outro">Outro</option>
+                        </select>
+                      </p>
+                      <p class="fc-eval__sublegend">Dispositivo que você mais usa aqui</p>
+                      <ul class="fc-radio-list">
+                        <li>
+                          <label><input type="radio" name="dispositivo" value="celular" /> Celular</label>
+                        </li>
+                        <li>
+                          <label><input type="radio" name="dispositivo" value="tablet" /> Tablet</label>
+                        </li>
+                        <li>
+                          <label><input type="radio" name="dispositivo" value="desktop" /> Computador</label>
+                        </li>
+                      </ul>
+                      <p class="fc-eval__sublegend">Com que frequência você visita?</p>
+                      <ul class="fc-radio-list">
+                        <li>
+                          <label><input type="radio" name="frequencia" value="primeira" /> Primeira vez</label>
+                        </li>
+                        <li>
+                          <label><input type="radio" name="frequencia" value="as_vezes" /> Às vezes</label>
+                        </li>
+                        <li>
+                          <label><input type="radio" name="frequencia" value="frequente" /> Com frequência</label>
+                        </li>
+                      </ul>
+                    </fieldset>
+                  </div>
+
+                  <div class="fc-eval__slide" data-eval-slide="5" tabindex="-1">
+                    <p class="contact-form__field fc-eval__field--final">
+                      <label for="avSugestao">Comentários e sugestões livres</label>
+                      <textarea
+                        id="avSugestao"
+                        name="sugestao"
+                        rows="6"
+                        maxlength="4000"
+                        placeholder="Conte o que sentiu falta, ideias de jogos, críticas construtivas…"
+                      ></textarea>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="fc-eval__nav">
+                <button
+                  type="button"
+                  class="btn btn--ghost fc-eval__arrow fc-eval__arrow--prev"
+                  id="fcEvalPrev"
+                  disabled
+                >
+                  <span class="fc-eval__arrow-icon" aria-hidden="true">←</span>
+                  Anterior
+                </button>
+                <button type="button" class="btn btn--primary fc-eval__arrow fc-eval__arrow--next" id="fcEvalNext">
+                  Próximo
+                  <span class="fc-eval__arrow-icon" aria-hidden="true">→</span>
+                </button>
+                <button type="submit" class="btn btn--primary fc-eval__arrow fc-eval__submit" id="fcEvalSubmit" hidden>
+                  Enviar avaliação
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div
+            id="thanksAvaliacao"
+            class="fc-thanks fc-thanks--sent"
+            hidden
+            role="status"
+            aria-live="polite"
+            tabindex="-1"
+          >
+            <div class="fc-thanks__sent-row">
+              <span class="fc-thanks__check" aria-hidden="true">✓</span>
+              <div class="fc-thanks__sent-text">
+                <strong class="fc-thanks__sent-title">Avaliação enviada com sucesso</strong>
+                <p class="fc-thanks__sent-body" id="thanksAvaliacaoMsg"></p>
+              </div>
+            </div>
+          </div>
+          <p class="fc-micro">
+            Atenção: o envio ao servidor ainda não está ativo. Você verá a mensagem de agradecimento, mas nada é
+            guardado na nuvem por enquanto — estamos finalizando a integração com a equipe.
+          </p>
+        </section>
+
+        <!-- 2) Bugs -->
+        <section class="fc-section fc-section--channel" id="relatorio-bugs" aria-labelledby="fc-bug-title">
+          <h2 id="fc-bug-title" class="fc-section__title">2 · Bugs e informação errada</h2>
+          <p class="fc-section__lead">
+            Conte se algo quebrou, se um link da wiki está errado ou se encontrou informação desatualizada. Isso ajuda a
+            corrigirmos com prioridade.
+          </p>
+
+          <div class="fc-channel fc-channel--bugs">
+            <div class="fc-channel__head">
+              <div class="fc-channel__art fc-channel__art--bugs" aria-hidden="true">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="fcBugG" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#fbbf24" />
+                      <stop offset="100%" stop-color="#f97316" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="60" cy="60" r="52" fill="rgba(15,23,42,0.9)" stroke="rgba(251,191,36,0.45)" stroke-width="2" />
+                  <path
+                    fill="url(#fcBugG)"
+                    d="M44 38h32a6 6 0 016 6v22a6 6 0 01-6 6H44a6 6 0 01-6-6V44a6 6 0 016-6z"
+                  />
+                  <circle cx="52" cy="56" r="4" fill="#0f172a" />
+                  <circle cx="68" cy="56" r="4" fill="#0f172a" />
+                  <path stroke="#0f172a" stroke-width="3" stroke-linecap="round" d="M52 68c4 4 12 4 16 0" fill="none" />
+                  <circle cx="88" cy="36" r="14" fill="rgba(56,189,248,0.25)" stroke="#38bdf8" stroke-width="2" />
+                  <path stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" d="M84 36h8M88 32v8" />
+                </svg>
+              </div>
+              <div class="fc-channel__head-text">
+                <p class="fc-channel__eyebrow">Central de correções</p>
+                <p class="fc-channel__tagline">
+                  Quanto mais claro o relato, mais rápido a equipe reproduz o caso no site ou na wiki.
+                </p>
+              </div>
+            </div>
+            <div class="fc-channel__pills" aria-hidden="true">
+              <span class="fc-channel__pill">🐛 Bug</span>
+              <span class="fc-channel__pill">📚 Info</span>
+              <span class="fc-channel__pill">🔗 Link</span>
+              <span class="fc-channel__pill">✏️ Outro</span>
+            </div>
+            <form id="formBugs" class="contact-form fc-form fc-channel__form" action="#" method="post">
+              <p class="contact-form__field">
+                <label for="bugTipo">Tipo de relato</label>
+                <select id="bugTipo" name="tipo" required>
+                  <option value="">Selecione…</option>
+                  <option value="bug">Bug visual ou funcional</option>
+                  <option value="info">Informação errada / desatualizada</option>
+                  <option value="link">Link quebrado</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </p>
+              <p class="contact-form__field">
+                <label for="bugOnde">Onde aconteceu? (página ou jogo)</label>
+                <input id="bugOnde" name="onde" type="text" maxlength="200" placeholder="Ex.: lista de jogos, card do Minecraft…" />
+              </p>
+              <p class="contact-form__field">
+                <label for="bugTexto">Descrição</label>
+                <textarea id="bugTexto" name="texto" rows="6" maxlength="6000" required placeholder="Descreva o que viu e, se possível, o que esperava."></textarea>
+              </p>
+              <p class="contact-form__actions">
+                <button type="submit" class="btn btn--primary btn--lg">Enviar relato</button>
+              </p>
+            </form>
+          </div>
+
+          <div
+            id="thanksBugs"
+            class="fc-thanks fc-thanks--sent fc-thanks--sent-bugs"
+            hidden
+            role="status"
+            aria-live="polite"
+            tabindex="-1"
+          >
+            <div class="fc-thanks__sent-row">
+              <span class="fc-thanks__icon-bubble fc-thanks__icon-bubble--bugs" aria-hidden="true">🔧</span>
+              <div class="fc-thanks__sent-text">
+                <strong class="fc-thanks__sent-title fc-thanks__sent-title--bugs">Relato recebido</strong>
+                <p class="fc-thanks__sent-body" id="thanksBugsMsg"></p>
+              </div>
+            </div>
+          </div>
+          <p class="fc-micro">
+            Modo demonstração: o relato não é enviado a um servidor ainda. Agradecemos mesmo assim — quando o painel da
+            equipe estiver no ar, estes formulários passarão a registrar tickets de verdade.
+          </p>
+        </section>
+
+        <!-- 3) Contato dono -->
+        <section class="fc-section fc-section--channel" id="contato-dono" aria-labelledby="fc-dono-title">
+          <h2 id="fc-dono-title" class="fc-section__title">3 · Contato com o dono / equipe</h2>
+          <p class="fc-section__lead">
+            Canal reservado para assuntos mais sérios: parcerias, imprensa ou contato pessoal com quem mantém o projeto.
+            Preencha com dados verdadeiros; quando o backend existir, a mensagem seguirá para a caixa da equipe.
+          </p>
+
+          <div class="fc-channel fc-channel--dono">
+            <div class="fc-channel__head">
+              <div class="fc-channel__art fc-channel__art--dono" aria-hidden="true">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="fcDonoG" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#6366f1" />
+                      <stop offset="100%" stop-color="#38bdf8" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="18" y="32" width="84" height="56" rx="10" fill="rgba(15,23,42,0.95)" stroke="url(#fcDonoG)" stroke-width="2" />
+                  <path fill="url(#fcDonoG)" opacity="0.35" d="M18 40l42 28 42-28v48H18z" />
+                  <rect x="34" y="52" width="52" height="4" rx="2" fill="#94a3b8" opacity="0.6" />
+                  <rect x="34" y="62" width="36" height="4" rx="2" fill="#94a3b8" opacity="0.4" />
+                  <circle cx="60" cy="88" r="22" fill="rgba(99,102,241,0.2)" stroke="#818cf8" stroke-width="2" />
+                  <path fill="#a5b4fc" d="M54 82h12v12H54z" opacity="0.9" />
+                </svg>
+              </div>
+              <div class="fc-channel__head-text">
+                <p class="fc-channel__eyebrow">Canal direto</p>
+                <p class="fc-channel__tagline">
+                  Use para parcerias, imprensa ou assuntos que não cabem no chat público. Seja objetivo na mensagem.
+                </p>
+              </div>
+            </div>
+            <div class="fc-channel__pills" aria-hidden="true">
+              <span class="fc-channel__pill">🤝 Parcerias</span>
+              <span class="fc-channel__pill">📰 Imprensa</span>
+              <span class="fc-channel__pill">💼 Equipe</span>
+              <span class="fc-channel__pill">✉️ Geral</span>
+            </div>
+            <form id="formDono" class="contact-form fc-form fc-channel__form fc-channel__form--grid" action="#" method="post" novalidate>
+              <p class="contact-form__field">
+                <label for="donoNome">Nome completo</label>
+                <input id="donoNome" name="nome" type="text" autocomplete="name" required maxlength="120" />
+              </p>
+              <p class="contact-form__field">
+                <label for="donoEmail">E-mail</label>
+                <input id="donoEmail" name="email" type="email" autocomplete="email" inputmode="email" required />
+              </p>
+              <p class="contact-form__field">
+                <label for="donoTelefone">Telefone (com DDD)</label>
+                <input id="donoTelefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="Ex.: 11999990000" />
+              </p>
+              <p class="contact-form__field">
+                <label for="donoIdade">Idade</label>
+                <input id="donoIdade" name="idade" type="number" min="13" max="120" required />
+              </p>
+              <p class="contact-form__field fc-channel__field--full">
+                <label for="donoMsg">Mensagem</label>
+                <textarea id="donoMsg" name="mensagem" rows="6" maxlength="8000" required></textarea>
+              </p>
+              <p class="contact-form__actions fc-channel__field--full">
+                <button type="submit" class="btn btn--primary btn--lg">Enviar para a equipe</button>
+              </p>
+            </form>
+          </div>
+
+          <div
+            id="thanksDono"
+            class="fc-thanks fc-thanks--sent fc-thanks--sent-dono"
+            hidden
+            role="status"
+            aria-live="polite"
+            tabindex="-1"
+          >
+            <div class="fc-thanks__sent-row">
+              <span class="fc-thanks__icon-bubble fc-thanks__icon-bubble--dono" aria-hidden="true">✉️</span>
+              <div class="fc-thanks__sent-text">
+                <strong class="fc-thanks__sent-title fc-thanks__sent-title--dono">Pedido enviado à equipe</strong>
+                <p class="fc-thanks__sent-body" id="thanksDonoMsg"></p>
+              </div>
+            </div>
+          </div>
+          <p class="fc-micro">
+            Aviso: este envio ainda é apenas demonstração — nenhum e-mail ou SMS é disparado. Mostramos “obrigado” para
+            você testar o fluxo; a integração com a equipe será ativada em breve.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__grid">
+        <div>
+          <p class="site-footer__brand">Tuto Games</p>
+          <p class="site-footer__note">
+            Página estática de exemplo. Sem fins comerciais; links externos abrem em nova aba.
+          </p>
+          <nav class="site-footer__nav" aria-label="Rodapé">
+            <a href="index.html">Site original (início)</a>
+            <a href="lista-jogos.html">Lista completa</a>
+            <a href="fale-conosco.html">Fale conosco</a>
+            <a href="chat-comunidade.html">Chat da comunidade</a>
+          </nav>
+        </div>
+        <div>
+          <p class="site-footer__label">Privacidade</p>
+          <p class="site-footer__fine">
+            Formulários desta página são demonstrações: não garantimos armazenamento em servidor até a integração ser
+            publicada.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../teste-javascript/admin-config.js" defer></script>
+    <script src="../teste-javascript/admin-panel.js" defer></script>
+    <script src="../teste-javascript/games-data.js" defer></script>
+    <script src="../teste-javascript/site-search.js" defer></script>
+    <script src="../teste-javascript/fale-conosco-config.js" defer></script>
+    <script src="../teste-javascript/fale-conosco.js" defer></script>
+    <script src="../teste-javascript/deck.js" defer></script>
+  </body>
+</html>

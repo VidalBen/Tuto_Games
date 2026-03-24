@@ -1,0 +1,395 @@
+/**
+ * Author: Fabiel Santos
+ * Date: 2026-03-22
+ * Time: Session (America/Sao_Paulo)
+ * Project: benjamin.TESTE — Tuto Games
+ * Purpose: Full-width guide layout for wiki-jogo — category accents, infantil «para pais», Bomb Blast launcher styles.
+ */
+
+.wiki-guide-page {
+  padding-bottom: 3rem;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 45%, #e2e8f0 100%);
+}
+
+.wiki-guide-page--infantis {
+  background-repeat: no-repeat;
+}
+
+/* Wiki only — Bomb Blast launcher (mirrors home Tetris button size; right side) */
+.wiki-bomb-launch {
+  position: fixed;
+  z-index: 199;
+  right: 0.55rem;
+  left: auto;
+  bottom: calc(0.55rem + env(safe-area-inset-bottom, 0px));
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  touch-action: manipulation;
+  border: 1px solid rgba(236, 72, 153, 0.45);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #db2777, #c026d3);
+  color: #fce7f3;
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.35),
+    0 0 16px rgba(236, 72, 153, 0.25);
+  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.wiki-bomb-launch:hover {
+  filter: brightness(1.08);
+  transform: scale(1.04);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.4),
+    0 0 22px rgba(236, 72, 153, 0.35);
+}
+
+.wiki-bomb-launch:focus-visible {
+  outline: 2px solid #fbbf24;
+  outline-offset: 3px;
+}
+
+.wiki-bomb-launch__glyph {
+  width: 16px;
+  height: 16px;
+  display: block;
+  line-height: 1;
+  font-size: 14px;
+}
+
+body.has-admin-strip .wiki-bomb-launch {
+  bottom: calc(3.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+/**
+ * When admin panel is collapsed, `.admin-strip__reopen` sits bottom-right at z-index 199
+ * (same size as `.wiki-bomb-launch`), so it fully covers the bomb. Move the wiki launcher
+ * to the bottom-left corner instead (Tetris is home-only; no conflict on this page).
+ */
+body.has-admin-strip.admin-strip-panel-closed .wiki-bomb-launch {
+  right: auto;
+  left: calc(0.55rem + env(safe-area-inset-left, 0px));
+  bottom: calc(0.55rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Category accents on guide page */
+.wiki-guide-page--cat-roblox .wiki-guide__eyebrow {
+  color: #0ea5e9;
+}
+
+.wiki-guide-page--cat-roblox .wiki-guide__section h2 {
+  border-bottom-color: #0ea5e9;
+}
+
+.wiki-guide-page--cat-outros .wiki-guide__eyebrow {
+  color: #8b5cf6;
+}
+
+.wiki-guide-page--cat-outros .wiki-guide__section h2 {
+  border-bottom-color: #8b5cf6;
+}
+
+.wiki-guide-page--cat-antigo .wiki-guide__eyebrow {
+  color: #d97706;
+}
+
+.wiki-guide-page--cat-antigo .wiki-guide__section h2 {
+  border-bottom-color: #d97706;
+}
+
+.wiki-guide-page--cat-infantis .wiki-guide__eyebrow {
+  color: #ec4899;
+}
+
+.wiki-guide-page--cat-infantis .wiki-guide__hero {
+  border: 2px solid rgba(236, 72, 153, 0.35);
+  box-shadow:
+    0 20px 50px rgba(236, 72, 153, 0.12),
+    0 8px 24px rgba(250, 204, 21, 0.12);
+  background: linear-gradient(135deg, #fff 0%, #fff7ed 50%, #fdf4ff 100%);
+}
+
+.wiki-guide-page--cat-infantis .wiki-guide__chip {
+  background: linear-gradient(135deg, #fce7f3, #fef3c7);
+  color: #9d174d;
+  border-color: #f9a8d4;
+}
+
+.wiki-guide-page--cat-infantis .wiki-guide__section h2 {
+  border-bottom-color: #ec4899;
+}
+
+.wiki-guide-page--cat-infantis .wiki-guide__toc a {
+  background: #fff;
+  border-color: #fbcfe8;
+}
+
+.wiki-guide-page--cat-infantis .wiki-guide__toc a:hover,
+.wiki-guide-page--cat-infantis .wiki-guide__toc a:focus-visible {
+  border-color: #ec4899;
+  color: #be185d;
+}
+
+.wiki-guide__section--pais {
+  padding: 1.35rem 1.25rem;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fdf4ff 0%, #fff7ed 45%, #ecfeff 100%);
+  border: 2px dashed rgba(236, 72, 153, 0.45);
+  box-shadow: 0 12px 32px rgba(244, 114, 182, 0.12);
+}
+
+.wiki-guide__section--pais h2 {
+  border-bottom-color: #f472b6 !important;
+  color: #9d174d;
+}
+
+.wiki-guide__section--pais .wiki-guide__prose p {
+  color: #4b5563;
+}
+
+.wiki-guide-container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.wiki-guide__breadcrumb {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.wiki-guide__breadcrumb a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.wiki-guide__breadcrumb a:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.wiki-guide__breadcrumb [aria-hidden="true"] {
+  opacity: 0.45;
+  user-select: none;
+}
+
+.wiki-guide__hero {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.75rem 1.5rem;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+@media (min-width: 768px) {
+  .wiki-guide__hero {
+    grid-template-columns: minmax(0, 280px) 1fr;
+    align-items: start;
+  }
+}
+
+.wiki-guide__cover-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid #e2e8f0;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.wiki-guide__cover {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #e2e8f0;
+}
+
+.wiki-guide__eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6366f1;
+  margin: 0 0 0.4rem;
+}
+
+.wiki-guide__title {
+  font-family: var(--font-display, "Outfit", system-ui, sans-serif);
+  font-size: clamp(1.65rem, 4vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  color: #0f172a;
+}
+
+.wiki-guide__tagline {
+  font-size: 1.05rem;
+  color: #475569;
+  margin: 0 0 1rem;
+  line-height: 1.55;
+}
+
+.wiki-guide__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wiki-guide__chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #eef2ff;
+  color: #3730a3;
+  border: 1px solid #c7d2fe;
+}
+
+.wiki-guide__toc {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0.75rem 0;
+  margin: 0 0 1.75rem;
+  background: rgba(248, 250, 252, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.wiki-guide__toc a {
+  display: inline-flex;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #0f172a;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+}
+
+.wiki-guide__toc a:hover,
+.wiki-guide__toc a:focus-visible {
+  border-color: #6366f1;
+  color: #4338ca;
+  outline: none;
+}
+
+.wiki-guide__toc a:focus-visible {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.35);
+}
+
+.wiki-guide__section {
+  margin-bottom: 2.25rem;
+  scroll-margin-top: 6rem;
+}
+
+.wiki-guide__section h2 {
+  font-family: var(--font-display, "Outfit", system-ui, sans-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #6366f1;
+  display: inline-block;
+  color: #0f172a;
+}
+
+.wiki-guide__prose p {
+  margin: 0 0 1rem;
+  line-height: 1.75;
+  color: #334155;
+  font-size: 1.05rem;
+}
+
+.wiki-guide__list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #334155;
+  line-height: 1.75;
+}
+
+.wiki-guide__list li {
+  margin-bottom: 0.55rem;
+}
+
+.wiki-guide__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0 0;
+}
+
+.wiki-guide__gallery figure {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.wiki-guide__gallery img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.wiki-guide__gallery figcaption {
+  padding: 0.5rem 0.65rem;
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.wiki-guide__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.wiki-guide__note {
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 1rem 0 0;
+  max-width: 60ch;
+}
+
+.wiki-guide__missing {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wiki-guide__toc a {
+    transition: none;
+  }
+}

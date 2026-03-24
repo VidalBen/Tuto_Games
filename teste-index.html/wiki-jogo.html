@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+  Author: Fabiel Santos
+  Date: 2026-03-22
+  Time: Session (America/Sao_Paulo)
+  Project: benjamin.TESTE — Tuto Games
+  Purpose: Full game guide for every catalog title — sections, images, Fandom link (Tetris stays on home only).
+-->
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Guia Tuto Games — visão geral, dicas, imagens e link para a wiki Fandom do jogo."
+    />
+    <title>Tuto Games — Guia do jogo</title>
+    <link rel="shortcut icon" href="img/logoDoSite.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../teste.css/teste.css" />
+    <link rel="stylesheet" href="../teste.css/wiki-guide.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <a class="skip-link" href="#wg-visao">Pular para a visão geral</a>
+
+    <p class="dev-site-banner" role="status">
+      Este site ainda está em desenvolvimento — pode apresentar erros ou bugs.
+    </p>
+
+    <header class="site-header" id="topo">
+      <div class="site-header__bar">
+        <a class="brand" href="index.html" aria-label="Tuto Games — início">
+          <span class="brand__mark" aria-hidden="true">◆</span>
+          <span class="brand__text">Tuto Games</span>
+        </a>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="navToggle"
+          aria-expanded="false"
+          aria-controls="mainNav"
+          aria-label="Abrir menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="site-search-wrap" id="siteSearchRoot">
+          <label for="siteSearchInput" class="visually-hidden">Pesquisar jogos</label>
+          <div class="site-search">
+            <input
+              type="search"
+              id="siteSearchInput"
+              class="site-search__input"
+              placeholder="Pesquisar jogo…"
+              autocomplete="off"
+              spellcheck="false"
+              aria-autocomplete="list"
+              aria-controls="siteSearchList"
+              aria-expanded="false"
+              enterkeyhint="search"
+            />
+            <ul id="siteSearchList" class="site-search__dropdown" role="listbox" hidden></ul>
+          </div>
+        </div>
+        <nav class="site-nav" id="mainNav" aria-label="Seções do site">
+          <a href="index.html">Início</a>
+          <a href="lista-jogos.html">Lista completa</a>
+          <a href="fale-conosco.html">Fale conosco</a>
+          <a href="chat-comunidade.html">Chat da comunidade</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo" class="wiki-guide-page">
+      <div class="container wiki-guide-container">
+        <div id="wikiGuideMissing" class="wiki-guide__missing" hidden>
+          <p class="hero__eyebrow">Não encontrado</p>
+          <h1>Jogo não encontrado</h1>
+          <p class="section__lead">
+            O hash da URL não corresponde a nenhum título do catálogo. Volte ao início ou escolha um jogo na lista.
+          </p>
+          <p class="wiki-guide__actions">
+            <a class="btn btn--primary" href="index.html">Ir ao início</a>
+            <a class="btn btn--ghost" href="lista-jogos.html">Ver lista completa</a>
+          </p>
+        </div>
+        <div id="wikiGuideRoot"></div>
+      </div>
+    </main>
+
+    <a
+      id="wikiBombLaunch"
+      class="wiki-bomb-launch"
+      href="bomb-blast.html"
+      hidden
+      title="Bombas Divertidas"
+      aria-label="Abrir minijogo Bombas Divertidas — apenas guias infantis"
+    >
+      <span class="wiki-bomb-launch__glyph" aria-hidden="true">💣</span>
+    </a>
+
+    <footer class="site-footer">
+      <div class="container site-footer__grid">
+        <div>
+          <p class="site-footer__brand">Tuto Games</p>
+          <p class="site-footer__note">
+            Página estática de exemplo. Sem fins comerciais; links externos abrem em nova aba.
+          </p>
+          <nav class="site-footer__nav" aria-label="Rodapé">
+            <a href="index.html">Site original (início)</a>
+            <a href="lista-jogos.html">Lista completa</a>
+            <a href="fale-conosco.html">Fale conosco</a>
+            <a href="chat-comunidade.html">Chat da comunidade</a>
+          </nav>
+        </div>
+        <div>
+          <p class="site-footer__label">Privacidade</p>
+          <p class="site-footer__fine">
+            Não coletamos dados nesta página estática. Ao abrir links externos, aplicam-se as políticas dos sites de
+            destino.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../teste-javascript/admin-config.js" defer></script>
+    <script src="../teste-javascript/admin-panel.js" defer></script>
+    <script src="../teste-javascript/games-data.js" defer></script>
+    <script src="../teste-javascript/games-guide-expand.js" defer></script>
+    <script src="../teste-javascript/site-search.js" defer></script>
+    <script src="../teste-javascript/wiki-jogo.js" defer></script>
+    <script src="../teste-javascript/deck.js" defer></script>
+  </body>
+</html>

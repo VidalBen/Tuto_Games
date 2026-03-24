@@ -1,0 +1,645 @@
+/**
+ * Author: Fabiel Santos
+ * Date: 2026-03-22
+ * Time: Session (America/Sao_Paulo)
+ * Project: benjamin.TESTE — Tuto Games
+ * Purpose: Themed “mini-sites” for kids/family game guides + wiki bridge infantis block.
+ */
+
+/* ——— Wiki bridge (infantis) ——— */
+.wiki-bridge-infantis {
+  margin-top: 1.75rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg, 16px);
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.25), rgba(173, 216, 230, 0.35));
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.wiki-bridge-infantis__hero {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .wiki-bridge-infantis__hero {
+    grid-template-columns: minmax(0, 220px) 1fr;
+    align-items: center;
+  }
+}
+
+.wiki-bridge-infantis__hero img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-md, 12px);
+  border: 3px solid #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.wiki-bridge-infantis__badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff6b9d, #c471ed);
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.wiki-bridge-infantis__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.wiki-bridge-infantis__gallery img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.wiki-bridge-infantis__long {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.wiki-bridge-infantis__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.wiki-bridge__actions--infantis {
+  flex-wrap: wrap;
+}
+
+/* ——— Game hub pages ——— */
+.game-hub {
+  --gh-accent: #6366f1;
+  --gh-accent-2: #a855f7;
+  --gh-surface: rgba(255, 255, 255, 0.92);
+  --gh-text: #0f172a;
+  --gh-muted: #475569;
+  min-height: 60vh;
+  padding-bottom: 3rem;
+  color: var(--gh-text);
+  background: var(--gh-bg, linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%));
+}
+
+.game-hub__hero {
+  position: relative;
+  padding: 2rem 0 2.5rem;
+  overflow: hidden;
+}
+
+.game-hub__hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gh-hero-overlay, linear-gradient(135deg, rgba(99, 102, 241, 0.12), transparent));
+  pointer-events: none;
+}
+
+.game-hub__hero-inner {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .game-hub__hero-inner {
+    grid-template-columns: minmax(0, 320px) 1fr;
+  }
+}
+
+.game-hub__cover-wrap {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  transform: rotate(-1deg);
+}
+
+.game-hub__cover {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.game-hub__title {
+  font-family: var(--font-display, "Outfit", system-ui, sans-serif);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.5);
+}
+
+.game-hub__meta {
+  font-size: 0.95rem;
+  color: var(--gh-muted);
+  margin: 0 0 1rem;
+}
+
+.game-hub__lead {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 52ch;
+}
+
+.game-hub__nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  margin: 0 -0.5rem 1.5rem;
+  background: var(--gh-nav-bg, rgba(255, 255, 255, 0.85));
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+.game-hub__nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--gh-text);
+  background: var(--gh-surface);
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.game-hub__nav a:hover,
+.game-hub__nav a:focus-visible {
+  border-color: var(--gh-accent);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.game-hub__section {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 5rem;
+}
+
+.game-hub__section h2 {
+  font-family: var(--font-display, "Outfit", system-ui, sans-serif);
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--gh-accent);
+  display: inline-block;
+}
+
+.game-hub__section p {
+  line-height: 1.7;
+  color: var(--gh-muted);
+  margin: 0 0 1rem;
+  max-width: 70ch;
+}
+
+.game-hub__grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 600px) {
+  .game-hub__grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.game-hub__figure {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 3px solid #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.game-hub__figure img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.game-hub__figure figcaption {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  background: var(--gh-surface);
+  color: var(--gh-muted);
+}
+
+.game-hub__tip-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--gh-muted);
+  line-height: 1.75;
+}
+
+.game-hub__tip-list li {
+  margin-bottom: 0.5rem;
+}
+
+.game-hub__back {
+  margin-top: 2rem;
+}
+
+/* Theme modifiers */
+.game-hub--kirby-forgotten-land {
+  --gh-bg: linear-gradient(180deg, #fce7f3 0%, #e0f2fe 50%, #fdf4ff 100%);
+  --gh-accent: #ec4899;
+  --gh-accent-2: #38bdf8;
+  --gh-hero-overlay: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(56, 189, 248, 0.12));
+  --gh-nav-bg: rgba(252, 231, 243, 0.92);
+}
+
+.game-hub--lego-star-wars-skywalker {
+  --gh-bg: linear-gradient(180deg, #0c4a6e 0%, #1e3a5f 40%, #0f172a 100%);
+  --gh-text: #f1f5f9;
+  --gh-muted: #cbd5e1;
+  --gh-accent: #fbbf24;
+  --gh-accent-2: #38bdf8;
+  --gh-surface: rgba(15, 23, 42, 0.85);
+  --gh-hero-overlay: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(56, 189, 248, 0.1));
+  --gh-nav-bg: rgba(15, 23, 42, 0.9);
+}
+
+.game-hub--lego-star-wars-skywalker .game-hub__nav a {
+  color: #f8fafc;
+  background: rgba(30, 58, 95, 0.9);
+}
+
+.game-hub--lego-star-wars-skywalker .game-hub__title {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.game-hub--mario-kart-8-deluxe {
+  --gh-bg: linear-gradient(180deg, #dbeafe 0%, #93c5fd 35%, #1d4ed8 100%);
+  --gh-accent: #1e40af;
+  --gh-accent-2: #fbbf24;
+  --gh-hero-overlay: linear-gradient(135deg, rgba(30, 64, 175, 0.2), rgba(251, 191, 36, 0.15));
+  --gh-nav-bg: rgba(219, 234, 254, 0.95);
+}
+
+.game-hub--just-dance-2024 {
+  --gh-bg: linear-gradient(180deg, #fef08a 0%, #f472b6 45%, #a855f7 100%);
+  --gh-accent: #be185d;
+  --gh-accent-2: #7c3aed;
+  --gh-hero-overlay: linear-gradient(135deg, rgba(190, 24, 93, 0.15), rgba(168, 85, 247, 0.2));
+  --gh-nav-bg: rgba(254, 240, 138, 0.92);
+}
+
+.game-hub--spongebob-bfbb-rehydrated {
+  --gh-bg: linear-gradient(180deg, #fef9c3 0%, #fde047 40%, #0ea5e9 100%);
+  --gh-accent: #0ea5e9;
+  --gh-accent-2: #eab308;
+  --gh-hero-overlay: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(234, 179, 8, 0.15));
+  --gh-nav-bg: rgba(254, 249, 195, 0.95);
+}
+
+.game-hub--littlebigplanet-3 {
+  --gh-bg: linear-gradient(180deg, #fce7f3 0%, #ddd6fe 50%, #a78bfa 100%);
+  --gh-accent: #7c3aed;
+  --gh-accent-2: #ec4899;
+  --gh-hero-overlay: linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(236, 72, 153, 0.12));
+  --gh-nav-bg: rgba(252, 231, 243, 0.92);
+}
+
+.game-hub--super-mario-party {
+  --gh-bg: linear-gradient(180deg, #fecaca 0%, #fde68a 40%, #34d399 100%);
+  --gh-accent: #dc2626;
+  --gh-accent-2: #059669;
+  --gh-hero-overlay: linear-gradient(135deg, rgba(220, 38, 38, 0.12), rgba(5, 150, 105, 0.12));
+  --gh-nav-bg: rgba(254, 202, 202, 0.92);
+}
+
+.game-hub--pokemon-lets-go {
+  --gh-bg: linear-gradient(180deg, #fef3c7 0%, #fcd34d 35%, #f97316 100%);
+  --gh-accent: #ea580c;
+  --gh-accent-2: #2563eb;
+  --gh-hero-overlay: linear-gradient(135deg, rgba(234, 88, 12, 0.12), rgba(37, 99, 235, 0.12));
+  --gh-nav-bg: rgba(254, 243, 199, 0.95);
+}
+
+.game-hub--minecraft-dungeons {
+  --gh-bg: linear-gradient(180deg, #1e293b 0%, #334155 50%, #0f172a 100%);
+  --gh-text: #f1f5f9;
+  --gh-muted: #94a3b8;
+  --gh-accent: #22c55e;
+  --gh-accent-2: #38bdf8;
+  --gh-surface: rgba(30, 41, 59, 0.9);
+  --gh-hero-overlay: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(56, 189, 248, 0.1));
+  --gh-nav-bg: rgba(15, 23, 42, 0.92);
+}
+
+.game-hub--minecraft-dungeons .game-hub__nav a {
+  color: #f8fafc;
+  background: rgba(51, 65, 85, 0.95);
+}
+
+.game-hub--minecraft-dungeons .game-hub__title {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.game-hub--disney-dreamlight-valley {
+  --gh-bg: linear-gradient(180deg, #e0e7ff 0%, #c7d2fe 40%, #818cf8 100%);
+  --gh-accent: #4f46e5;
+  --gh-accent-2: #f472b6;
+  --gh-hero-overlay: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(244, 114, 182, 0.12));
+  --gh-nav-bg: rgba(224, 231, 255, 0.95);
+}
+
+/* ——— Premium layout (alinhado à home): breadcrumb, hero CTA, minijogo ——— */
+.game-hub__breadcrumb {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--gh-muted);
+}
+
+.game-hub__breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.game-hub__breadcrumb a {
+  color: var(--gh-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.game-hub__breadcrumb a:focus-visible {
+  outline: 3px solid var(--gh-accent-2);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.game-hub__breadcrumb [aria-hidden="true"] {
+  opacity: 0.6;
+  user-select: none;
+}
+
+.game-hub__eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gh-accent);
+  margin: 0 0 0.35rem;
+}
+
+.game-hub__hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.game-hub__hero-actions .btn:focus-visible {
+  outline: 3px solid var(--gh-accent-2);
+  outline-offset: 3px;
+}
+
+.game-hub__section--minigame {
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-lg, 20px);
+  background: var(--gh-surface);
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+}
+
+.game-hub--lego-star-wars-skywalker .game-hub__section--minigame,
+.game-hub--minecraft-dungeons .game-hub__section--minigame {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+.minigame-shell__head {
+  margin-bottom: 1rem;
+}
+
+.minigame-shell__lead {
+  margin: 0.35rem 0 0;
+  max-width: 65ch;
+  line-height: 1.65;
+  color: var(--gh-muted);
+  font-size: 1rem;
+}
+
+.minigame-kbd {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-family: ui-monospace, monospace;
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.game-hub--lego-star-wars-skywalker .minigame-kbd,
+.game-hub--minecraft-dungeons .minigame-kbd {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #e2e8f0;
+}
+
+.minigame-root:focus {
+  outline: none;
+}
+
+.minigame-root:focus-visible {
+  outline: 3px solid var(--gh-accent);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.minigame-frame {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--gh-accent);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.game-hub--lego-star-wars-skywalker .minigame-frame,
+.game-hub--minecraft-dungeons .minigame-frame {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: var(--gh-accent);
+}
+
+.minigame-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.85rem;
+  background: rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.game-hub--lego-star-wars-skywalker .minigame-toolbar,
+.game-hub--minecraft-dungeons .minigame-toolbar {
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.minigame-score {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--gh-text);
+}
+
+.minigame-canvas-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.minigame-canvas-wrap canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+  touch-action: none;
+}
+
+.minigame-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  justify-content: center;
+}
+
+.minigame-controls .btn:focus-visible {
+  outline: 3px solid var(--gh-accent-2);
+  outline-offset: 2px;
+}
+
+.minigame-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.minigame-target-grid {
+  position: relative;
+  min-height: 220px;
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.05));
+  border-radius: 0 0 12px 12px;
+}
+
+.minigame-target {
+  position: absolute;
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 50%;
+  border: 3px solid #fbbf24;
+  background: rgba(251, 191, 36, 0.35);
+  cursor: pointer;
+  padding: 0;
+  animation: minigame-pop 0.35s ease;
+}
+
+@keyframes minigame-pop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .minigame-target {
+    animation: none;
+  }
+
+  .game-hub__nav a {
+    transition: none;
+  }
+}
+
+.minigame-mole-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 0.75rem;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.minigame-mole-cell {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  background: #64748b;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  transition: background 0.12s ease;
+}
+
+.minigame-mole-cell--active {
+  background: #22c55e;
+  box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.minigame-mole-cell:focus-visible {
+  outline: 3px solid var(--gh-accent-2);
+  outline-offset: 2px;
+}
+
+.minigame-dance-keys {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.minigame-dance-keys kbd {
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.game-hub__figure img {
+  background: rgba(0, 0, 0, 0.04);
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--
+  Author: Fabiel Santos
+  Date: 2026-03-22
+  Time: Session (America/Sao_Paulo)
+  Project: benjamin.TESTE — Tuto Games home
+  Purpose: Home with character + game list, about/what-we-do sections, and wiki bridge navigation.
+-->
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Tuto Games — lista de jogos, links para wikis da comunidade e catálogo completo."
+    />
+    <title>Tuto Games — Início</title>
+    <link rel="shortcut icon" href="img/logoDoSite.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../teste.css/teste.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <p class="dev-site-banner" role="status">
+      Este site ainda está em desenvolvimento — pode apresentar erros ou bugs.
+    </p>
+
+    <header class="site-header" id="topo">
+      <div class="site-header__bar">
+        <a class="brand" href="index.html" aria-label="Tuto Games — início">
+          <span class="brand__mark" aria-hidden="true">◆</span>
+          <span class="brand__text">Tuto Games</span>
+        </a>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="navToggle"
+          aria-expanded="false"
+          aria-controls="mainNav"
+          aria-label="Abrir menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="site-search-wrap" id="siteSearchRoot">
+          <label for="siteSearchInput" class="visually-hidden">Pesquisar jogos</label>
+          <div class="site-search">
+            <input
+              type="search"
+              id="siteSearchInput"
+              class="site-search__input"
+              placeholder="Pesquisar jogo…"
+              autocomplete="off"
+              spellcheck="false"
+              aria-autocomplete="list"
+              aria-controls="siteSearchList"
+              aria-expanded="false"
+              enterkeyhint="search"
+            />
+            <ul id="siteSearchList" class="site-search__dropdown" role="listbox" hidden></ul>
+          </div>
+        </div>
+        <nav class="site-nav" id="mainNav" aria-label="Seções do site">
+          <a href="index.html">Início</a>
+          <a href="#sobre-nos">Sobre nós</a>
+          <a href="#o-que-fazemos">O que fazemos</a>
+          <a href="lista-jogos.html">Lista completa</a>
+          <a href="fale-conosco.html">Fale conosco</a>
+          <a href="chat-comunidade.html">Chat da comunidade</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo" class="home-page">
+      <section class="home-layout" aria-labelledby="home-title">
+        <div class="home-visual">
+          <p class="home-eyebrow">Catálogo · comunidade</p>
+          <h1 id="home-title">Tuto Games</h1>
+          <p class="home-lead">
+            Escolha um jogo na lista ao lado para abrir a página intermediária com link para a
+            <strong>wiki Fandom</strong> — no futuro, o mesmo fluxo poderá usar a nossa wiki.
+          </p>
+          <div class="personagem-frame" aria-hidden="true">
+            <img
+              class="personagem-cutout"
+              src="img/personagem-hero.avif"
+              alt=""
+              width="480"
+              height="480"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+        <aside class="game-sidebar" aria-labelledby="lista-rapida-title">
+          <h2 id="lista-rapida-title" class="game-sidebar__title">Jogos no site</h2>
+          <p class="game-sidebar__hint">Primeiros 20 títulos — clique para ir à wiki da comunidade.</p>
+          <ol class="game-list" id="homeGamesList"></ol>
+          <a class="btn btn--primary btn--block" href="lista-jogos.html">Toda a lista</a>
+        </aside>
+      </section>
+
+      <section class="section section--tint" id="sobre-nos" aria-labelledby="sobre-nos-title">
+        <div class="container">
+          <h2 id="sobre-nos-title">Sobre nós</h2>
+          <p class="section__lead">
+            O <strong>Tuto Games</strong> nasceu da vontade de juntar em um só lugar curiosidade sobre
+            jogos, boas referências e caminhos claros para quem quer se aprofundar — seja em títulos do
+            ecossistema <strong>Roblox</strong>, seja em jogos que marcaram gerações em console e PC.
+          </p>
+          <p class="section__lead section__lead--tight">
+            Somos um projeto voltado à <strong>comunidade</strong>: não vendemos jogos nem substituímos
+            as wikis oficiais ou da comunidade; queremos facilitar a descoberta e o acesso à
+            documentação que já existe, com transparência sobre para onde cada link leva.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="o-que-fazemos" aria-labelledby="o-que-fazemos-title">
+        <div class="container">
+          <h2 id="o-que-fazemos-title">O que fazemos</h2>
+          <p class="section__lead">
+            No site você encontra um <strong>catálogo curado</strong> com dezenas de jogos conhecidos:
+            na página inicial listamos os primeiros títulos e, em
+            <a href="lista-jogos.html">Lista completa</a>, cards com imagem, tipo de jogo, plataformas,
+            ano e um resumo da história ou do loop de jogo.
+          </p>
+          <p class="section__lead section__lead--tight">
+            Ao clicar no nome de um jogo, abrimos uma <strong>página intermediária</strong> com atalho
+            para a wiki da comunidade no <strong>Fandom</strong> (e, no futuro, poderemos apontar para
+            a nossa própria wiki). O <a href="chat-comunidade.html">Chat da comunidade</a> reúne visitantes em tempo
+            real (modo demonstração). Em <a href="fale-conosco.html">Fale conosco</a> você encontra avaliação, bugs e
+            contato com a equipe quando o envio estiver integrado ao backend.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__grid">
+        <div>
+          <p class="site-footer__brand">Tuto Games</p>
+          <p class="site-footer__note">
+            Página estática de exemplo. Sem fins comerciais; links externos abrem em nova aba.
+          </p>
+          <nav class="site-footer__nav" aria-label="Rodapé">
+            <a href="index.html">Site original (início)</a>
+            <a href="lista-jogos.html">Lista completa</a>
+            <a href="fale-conosco.html">Fale conosco</a>
+            <a href="chat-comunidade.html">Chat da comunidade</a>
+          </nav>
+        </div>
+        <div>
+          <p class="site-footer__label">Privacidade</p>
+          <p class="site-footer__fine">
+            Não coletamos dados nesta página estática. Ao abrir links externos, aplicam-se as
+            políticas dos sites de destino.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      class="home-tetris-launch"
+      href="tetris.html"
+      title="Jogar Tetris"
+      aria-label="Abrir minijogo Tetris"
+    >
+      <svg class="home-tetris-launch__glyph" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="3" y="5" width="6" height="6" rx="1" fill="currentColor" opacity="0.95" />
+        <rect x="9" y="5" width="6" height="6" rx="1" fill="currentColor" opacity="0.95" />
+        <rect x="9" y="11" width="6" height="6" rx="1" fill="currentColor" opacity="0.95" />
+        <rect x="15" y="11" width="6" height="6" rx="1" fill="currentColor" opacity="0.95" />
+      </svg>
+    </a>
+
+    <script src="../teste-javascript/admin-config.js" defer></script>
+    <script src="../teste-javascript/admin-panel.js" defer></script>
+    <script src="../teste-javascript/games-data.js" defer></script>
+    <script src="../teste-javascript/site-search.js" defer></script>
+    <script src="../teste-javascript/home.js" defer></script>
+    <script src="../teste-javascript/deck.js" defer></script>
+  </body>
+</html>
